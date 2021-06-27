@@ -1,11 +1,15 @@
 {
-  "name": "pleonasm/merkle-tree",
+  "name": "rht/merkle-tree",
   "description": "An implementation of a Merkle Tree in PHP",
   "license": "BSD-2-Clause",
   "authors": [
     {
       "name": "Matt Nagi",
       "email": "matthew.nagi@base-2.net"
+    },
+    {
+      "name": "rht",
+      "email": "rhtbot@protonmail.com"
     }
   ],
   "require": {
@@ -18,7 +22,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Pleo\\Merkle\\": "src/"
+      "Rht\\Merkle\\": "src/"
     }
   }
 }

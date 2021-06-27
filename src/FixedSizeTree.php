@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace Pleo\Merkle;
+namespace Rht\Merkle;
 
 use UnexpectedValueException;
 

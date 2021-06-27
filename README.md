@@ -15,7 +15,7 @@ Put the following in your package.json:
 ```javascript
 {
     "require": {
-        "pleonasm/merkle-tree": "*"
+        "rht/merkle-tree": "*"
     }
 }
 ```
@@ -33,7 +33,7 @@ been actually finished, rather than checking for it each time yourself.
 
 ```php
 <?php
-use Pleo\Merkle\FixedSizeTree;
+use Rht\Merkle\FixedSizeTree;
 
 require 'vendor/autoload.php';
 

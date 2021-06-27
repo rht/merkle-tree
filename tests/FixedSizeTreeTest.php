@@ -4,7 +4,7 @@
  * @license http://opensource.org/licenses/BSD-2-Clause BSD 2-Clause License
  */
 
-namespace Pleo\Merkle;
+namespace Rht\Merkle;
 
 use LegacyPHPUnit\TestCase;
 use RangeException;
@@ -27,7 +27,7 @@ class FixedSizeTreeTest extends TestCase
     }
 
     /**
-     * @covers \Pleo\Merkle\FixedSizeTree
+     * @covers \Rht\Merkle\FixedSizeTree
      */
     public function testWidthOfTwoHashesCorrectly()
     {
