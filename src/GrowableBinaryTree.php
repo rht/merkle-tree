@@ -184,7 +184,9 @@ class GrowableBinaryTree
             }
 
             // degenerate case handling (should be refactored)
-            $newHash = call_user_func($this->hasher, $v . $v);
+            //$newHash = call_user_func($this->hasher, $v . $v);
+            // In the degenerate case, we simply propagate $v
+            $newHash = $v;
             $parentIndex = (int) ($i / 2);
             return $this->setOnRow($parentIndex, $newHash, $row + 1);
         }
