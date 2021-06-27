@@ -202,4 +202,35 @@ class GrowableBinaryTree
         $parentIndex = (int) ($i / 2);
         return $this->setOnRow($parentIndex, $newHash, $row + 1);
     }
+
+    public function getLayers() {
+        // API based on https://github.com/miguelmota/merkletreejs
+        return $this->grid;
+    }
+
+    public function getLayersAsObject() {
+        // API based on https://github.com/miguelmota/merkletreejs
+        $objs = array();
+        $layers = $this->getLayers();
+        for ($i = 0; $i < count($layers); $i++) {
+            $arr = array();
+            for ($j = 0; $j < count($layers[$i]); $j++) {
+                $obj = [$layers[$i][$j] => NULL];
+                if (count($objs) > 0) {
+                    $obj[$layers[$i][$j]] = array();
+                    $a = array_shift($objs);
+                    $akey = array_key_first($a);
+                    $obj[$layers[$i][$j]][$akey] = $a[$akey];
+                    if (count($objs) > 0) {
+                        $b = array_shift($objs);
+                        $bkey = array_key_first($b);
+                        $obj[$layers[$i][$j]][$bkey] = $b[$bkey];
+                    }
+                }
+                array_push($arr, $obj);
+            }
+            array_push($objs, ...$arr);
+        }
+        return $objs[0];
+    }
 }

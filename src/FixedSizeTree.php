@@ -81,4 +81,8 @@ class FixedSizeTree
             call_user_func($this->finished, $result);
         }
     }
+
+    public function getLayersAsObject() {
+        return $this->tree->getLayersAsObject();
+    }
 }
