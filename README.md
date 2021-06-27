@@ -66,7 +66,7 @@ $tree->set(14, 'explained');
 $tree->set(15, '.'); // this will echo the string 'c689102cdf2a5b30c2e21fdad85e4bb401085227aff672a7240ceb3410ff1fb6'
 ```
 
-The FixedSizeTree implements a Merkle Tree the [same way bitcoins do](https://en.bitcoin.it/wiki/Protocol_specification#Merkle_Trees).
+This fork of https://github.com/pleonasm/merkle-tree has a FixedSizeTree which implements a Merkle Patricia Tree the [same way Ethereum does](https://eth.wiki/fundamentals/patricia-tree). While pleonasm/merkle-tree implements it in the [same way bitcoins do](https://en.bitcoin.it/wiki/Protocol_specification#Merkle_Trees).
 There are [other ways](http://web.archive.org/web/20080316033726/http://www.open-content.net/specs/draft-jchapweske-thex-02.html)
 to actually deal with a tree width that is not a perfect square.
 
