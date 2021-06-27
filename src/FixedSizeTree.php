@@ -28,13 +28,15 @@ class FixedSizeTree
     private $tree;
     private $hasher;
     private $finished;
+    private $inputIsHash;
 
     /**
      * @param int $width
      * @param callable $hasher
      * @param callable|null $finished
+     * @aparam bool $inputIsHash
      */
-    public function __construct(int $width, callable $hasher, callable $finished = null)
+    public function __construct(int $width, callable $hasher, callable $finished = null, bool $inputIsHash = false)
     {
         if ($width < 1) {
             throw new UnexpectedValueException('width cannot be less than 1');
@@ -48,6 +50,7 @@ class FixedSizeTree
         $this->tree = $tree;
         $this->hasher = $hasher;
         $this->finished = $finished;
+        $this->inputIsHash = $inputIsHash;
     }
 
     /**
@@ -65,7 +68,12 @@ class FixedSizeTree
      */
     public function set(int $i, string $v)
     {
-        $result = $this->tree->set($i, call_user_func($this->hasher, $v));
+        if ($this->inputIsHash) {
+            $leaf = $v;
+        } else {
+            $leaf = call_user_func($this->hasher, $v);
+        }
+        $result = $this->tree->set($i, $leaf);
         if ($result === null) {
             return null;
         }
